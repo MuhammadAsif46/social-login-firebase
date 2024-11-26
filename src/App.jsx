@@ -25,34 +25,36 @@ function App() {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        console.log("jwt-token-->", user / n, "google-access-token--->", token);
+        console.log("jwt-token-->", user, "google-access-token--->", token);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const facebookLogin = () => {
-    signInWithPopup(auth, facebookProvider)
-      .then((result) => {
-        const user = result.user;
-        const credential = FacebookAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        console.log(
-          "jwt-token-->",
-          user / n,
-          "facebook-access-token--->",
-          token
-        );
-      })
-      .catch((error) => {
-        console.log(error);
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = FacebookAuthProvider.credentialFromError(error);
-      });
-  };
+      // facebook login code handler
+
+  // const facebookLogin = () => {
+  //   signInWithPopup(auth, facebookProvider)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       const credential = FacebookAuthProvider.credentialFromResult(result);
+  //       const token = credential.accessToken;
+  //       console.log(
+  //         "jwt-token-->",
+  //         user / n,
+  //         "facebook-access-token--->",
+  //         token
+  //       );
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       const email = error.customData.email;
+  //       const credential = FacebookAuthProvider.credentialFromError(error);
+  //     });
+  // };
 
   const githubLogin = () => {
     signInWithPopup(auth, githubProvider)
@@ -60,7 +62,7 @@ function App() {
         const credential = GithubAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        console.log("jwt-token-->", user / n, "github-access-token--->", token);
+        console.log("jwt-token-->", user , "github-access-token--->", token);
       })
       .catch((error) => {
         console.log(error);
@@ -80,13 +82,14 @@ function App() {
         <img src={googleIcon} alt="google-icon" width={25} height={25} />
         <span>Signin with Google</span>
       </div>
-      <div
+      {/* facebook login code */}
+      {/* <div
         className="social-icon rounded-5 d-flex justify-content-center align-items-center gap-2 py-2 px-5 my-2"
         onClick={facebookLogin}
       >
         <img src={facebookIcon} alt="google-icon" width={25} height={25} />
         <span>Signin with Facebook</span>
-      </div>
+      </div> */}
       <div
         className="social-icon rounded-5 d-flex justify-content-center align-items-center gap-2 py-2 px-5 my-2"
         onClick={githubLogin}
